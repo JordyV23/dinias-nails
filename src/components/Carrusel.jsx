@@ -15,17 +15,17 @@ export const Carrusel = () => {
             <Carousel>
               <img
                 src="work/nails2.webp"
-                alt="..."
+                alt="nails work 1"
                 className="w-full h-full object-cover"
               />
               <img
                 src="work/nails3.webp"
-                alt="..."
+                alt="nails work 2"
                 className="w-full h-full object-cover"
               />
               <img
                 src="work/nails4.webp"
-                alt="..."
+                alt="nails work 3"
                 className="w-full h-full object-cover"
               />
             </Carousel>
