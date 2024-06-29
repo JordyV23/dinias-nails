@@ -6,8 +6,12 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation(["welcome"]);
+
+
   return (
     <>
       <footer className="bg-white">
@@ -51,7 +55,7 @@ export const Footer = () => {
                   icon={faAddressBook}
                   className="text-base mr-1"
                 />
-                Contacto
+                {t("footerContact")}
               </p>
               <ul className="list-reset mb-6">
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -104,7 +108,7 @@ export const Footer = () => {
             <div className="flex-1">
               <p className="uppercase text-gray-500 md:mb-6">
                 <FontAwesomeIcon icon={faGlobe} className="text-base mr-1" />
-                Social
+                {t("footerSocial")}
               </p>
               <ul className="list-reset mb-6">
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -120,14 +124,7 @@ export const Footer = () => {
                     Instagram
                   </a>
                 </li>
-                {/* <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a
-                    href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >
-                    Linkedin
-                  </a>
-                </li> */}
+
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
@@ -142,35 +139,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-            {/* <div className="flex-1">
-              <p className="uppercase text-gray-500 md:mb-6">Company</p>
-              <ul className="list-reset mb-6">
-                <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a
-                    href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >
-                    Official Blog
-                  </a>
-                </li>
-                <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a
-                    href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <a
-                    href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div> */}
+
           </div>
         </div>
       </footer>

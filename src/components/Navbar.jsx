@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBellConcierge,
@@ -7,59 +7,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons/faClock";
 import { sendMessage } from "../utils/utils";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 export const Navbar = () => {
-  // const [scrollPos, setScrollPos] = useState(0);
+  return (
+    <>
+      <Suspense fallback="Cargando Traducciones...">
+        <NavbarComponent />
+      </Suspense>
+    </>
+  );
+};
+
+const NavbarComponent = () => {
+  const { t } = useTranslation(["welcome"]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const headerRef = useRef(null);
   const navContentRef = useRef(null);
-  // const navActionRef = useRef(null);
-
-  // useEffect(() => {
-  //   function handleScroll() {
-  //     setScrollPos(window.scrollY);
-  //   }
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (!headerRef.current || !navContentRef.current || !navActionRef.current)
-  //     return;
-
-  //   const header = headerRef.current;
-  //   const navcontent = navContentRef.current;
-  //   const navaction = navActionRef.current;
-  //   const toToggle = document.querySelectorAll(".toggleColour");
-
-  //   if (scrollPos > 10) {
-  //     header.classList.add("bg-white", "shadow");
-  //     header.classList.remove("bg-transparent");
-  //     navaction.classList.add("gradient", "text-white");
-  //     navaction.classList.remove("bg-white", "text-gray-800");
-  //     navcontent.classList.add("bg-white");
-  //     navcontent.classList.remove("bg-transparent");
-  //     toToggle.forEach((el) => {
-  //       el.classList.add("text-gray-800");
-  //       el.classList.remove("text-white");
-  //     });
-  //   } else {
-  //     header.classList.remove("bg-white", "shadow");
-  //     header.classList.add("bg-transparent");
-  //     navaction.classList.remove("gradient", "text-white");
-  //     navaction.classList.add("bg-white", "text-gray-800");
-  //     navcontent.classList.remove("bg-white");
-  //     navcontent.classList.add("bg-transparent");
-  //     toToggle.forEach((el) => {
-  //       el.classList.remove("text-gray-800");
-  //       el.classList.add("text-white");
-  //     });
-  //   }
-  // }, [scrollPos]);
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -82,8 +48,6 @@ export const Navbar = () => {
     };
   }, []);
 
-
-
   return (
     <>
       <nav
@@ -102,25 +66,6 @@ export const Navbar = () => {
                 className="h-20 fill-current inline"
                 alt="Marca de dinias nails"
               />
-              {/* <svg
-                className="h-8 fill-current inline"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512.005 512.005"
-              >
-                <rect
-                  fill="#2a2a31"
-                  x="16.539"
-                  y="425.626"
-                  width="479.767"
-                  height="50.502"
-                  transform="matrix(1,0,0,1,0,0)"
-                />
-                <path
-                  className="plane-take-off"
-                  d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                />
-              </svg>
-              LANDING */}
             </a>
           </div>
           <div className="block lg:hidden pr-4">
@@ -153,7 +98,7 @@ export const Navbar = () => {
                   href="#Servicios"
                 >
                   <FontAwesomeIcon icon={faBellConcierge} className="mr-1" />
-                  Servicios
+                  {t("navbarOpt1")}
                 </a>
               </li>
               <li className="mr-3">
@@ -162,7 +107,7 @@ export const Navbar = () => {
                   href="#"
                 >
                   <FontAwesomeIcon icon={faClock} className="mr-1" />
-                  Horario
+                  {t("navbarOpt2")}
                 </a>
               </li>
               <li className="mr-3">
@@ -171,20 +116,21 @@ export const Navbar = () => {
                   href="#Ubicacion"
                 >
                   <FontAwesomeIcon icon={faLocationDot} className="mr-1" />
-                  Ubicación
+                  {t("navbarOpt3")}
                 </a>
               </li>
             </ul>
             <a
               // ref={navActionRef}
               id="navAction"
-              className="mx-auto lg:mx-0 hover:underline bg-white text-white font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out gradient"
+              className="mx-auto lg:mx-0 mr-3 hover:underline bg-white text-white font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out gradient"
               href={sendMessage()}
               target="_blank"
             >
               <FontAwesomeIcon icon={faCalendarCheck} className="mr-1" />
-              Reserva Tu Cita
+              {t("navbarCTABtn")}
             </a>
+            <LanguageSelector/>
           </div>
         </div>
         <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />

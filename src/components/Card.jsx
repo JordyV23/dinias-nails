@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { sendMessage } from "../utils/utils";
 
 /* eslint-disable react/prop-types */
 export const Card = ({ title, body }) => {
+  
+  const { t } = useTranslation(["welcome"]);
+
   return (
     <>
       <div className="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
@@ -24,7 +28,7 @@ export const Card = ({ title, body }) => {
         <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
           <div className="flex items-center justify-start">
             <a className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" href={sendMessage()} target="_blank">
-              Agendar Cita
+              {t("servCTABtn")}
             </a>
           </div>
         </div>

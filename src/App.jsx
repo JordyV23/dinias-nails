@@ -13,7 +13,6 @@ function App() {
       <Hero />
       <Wave />
       <CardSection />
-
       <Carrusel />
       <CallToAction />
       <Footer />

@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export const CallToAction = () => {
+  const { t } = useTranslation(["welcome"]);
   return (
     <>
       <section
@@ -6,14 +9,14 @@ export const CallToAction = () => {
         id="Ubicacion"
       >
         <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-          Ven y Visitanos
+          {t("locationTile")}
         </h2>
-        <p>Visitanos de 8:00 a.m. a 5:00 p.m de Lunes a Viernes</p>
-        <p>Nos ubicamos en 3719 E Gage Ave Bell, California, EE. UU, 90201</p>
+        <p>{t("locationTime")}</p>
+        <p>{t("locationAddress")}</p>
         <div className="w-full mb-4">
           <div className="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-        <h3 className="my-4 text-3xl leading-tight">Estamos esperándote!</h3>
+        <h3 className="my-4 text-3xl leading-tight">{t("locationCTA")}</h3>
         <div className="w-full max-w-4xl mx-auto">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
