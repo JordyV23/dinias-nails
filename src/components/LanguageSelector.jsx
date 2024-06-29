@@ -3,8 +3,8 @@ import { US, ES } from "country-flag-icons/react/3x2";
 import { useTranslation } from "react-i18next";
 
 const languages = [
-  { code: "en", name: "English", flag: US },
   { code: "es", name: "Español", flag: ES },
+  { code: "en", name: "English", flag: US },
 ];
 
 const LanguageSelector = () => {

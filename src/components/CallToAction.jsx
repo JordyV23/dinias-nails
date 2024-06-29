@@ -8,7 +8,7 @@ export const CallToAction = () => {
         className="container mx-auto text-center py-6 mb-12 px-4"
         id="Ubicacion"
       >
-        <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-white" id="Horario">
           {t("locationTile")}
         </h2>
         <p>{t("locationTime")}</p>

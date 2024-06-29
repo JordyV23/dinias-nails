@@ -3,13 +3,13 @@ import { CardSection } from "./components/CardSection";
 import { Carrusel } from "./components/Carrusel";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { Navbar } from "./components/Navbar";
+import { NavComponent } from "./components/Navbar";
 import { Wave } from "./components/Wave";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <NavComponent />
       <Hero />
       <Wave />
       <CardSection />
